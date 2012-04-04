@@ -1,0 +1,5 @@
+{ "name" : "chat_faye",
+  "version" : "0.1.0",
+  "dependencies" : {
+    "faye" : "0.8.1"
+  }}
