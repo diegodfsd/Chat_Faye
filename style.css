@@ -1,0 +1,21 @@
+input[type='text']{
+  line-height: 30px;
+  padding: 5px;
+  border: solid 2px #999;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
+
+input[type='text']:focus{  
+  border: solid 2px #999;
+  
+  outline: none;
+  -webkit-box-shadow: 1px 1px 7px #999, -1px -1px 7px #999;
+     -moz-box-shadow: 1px 1px 7px #999, -1px -1px 7px #999;
+          box-shadow: 1px 1px 7px #999, -1px -1px 7px #999;
+}
+
+input[type='submit']{
+	padding: 9px 15px;
+}

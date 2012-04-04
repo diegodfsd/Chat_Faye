@@ -1,0 +1,30 @@
+<html>
+<head>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://localhost:4567/faye.js"></script>
+  <script type="text/javascript">
+
+	$(document).ready(function(){
+		var faye_client = new Faye.Client('http://localhost:4567/faye');
+		faye_client.subscribe('/chat' , function(data) {
+			$("#history").append($("<p>").html(data.text));
+		});
+		
+		$("form:first").submit(function(e){
+			e.preventDefault();
+			faye_client.publish("/chat", { text: $("#message").val() });
+			$("#message").val('').focus();
+		});
+	});
+  </script>
+</head>
+<body>
+	<form method="post">
+		<div id="history" style="height:300px; overflow:auto;">
+		</div>
+		<input type="text" size="200" name="message" id="message" />
+		<input type="submit" value="Enviar" />
+	</form>
+</body>
+</html>
